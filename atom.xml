@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Yowai-zhao.github.io</id>
     <title>Yowai</title>
-    <updated>2020-03-07T15:29:30.945Z</updated>
+    <updated>2020-03-08T12:09:40.116Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Yowai-zhao.github.io"/>
     <link rel="self" href="https://Yowai-zhao.github.io/atom.xml"/>
@@ -10,6 +10,53 @@
     <logo>https://Yowai-zhao.github.io/images/avatar.png</logo>
     <icon>https://Yowai-zhao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Yowai</rights>
+    <entry>
+        <title type="html"><![CDATA[在Mac下的Kettle安装]]></title>
+        <id>https://Yowai-zhao.github.io/post/zai-mac-xia-de-kettle-an-zhuang/</id>
+        <link href="https://Yowai-zhao.github.io/post/zai-mac-xia-de-kettle-an-zhuang/">
+        </link>
+        <updated>2020-03-08T12:08:38.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="kettle的安装流程">Kettle的安装流程</h1>
+<h2 id="资源下载链接">资源下载链接</h2>
+<p>文中所有资源已放在百度网盘，不想去官网下载的可以在此提取。仅适于Mac用户。</p>
+<p>链接:https://pan.baidu.com/s/1H6KS_qBUehJHI8TFyX7lNA  密码:re72</p>
+<h2 id="安装java的jdk">安装Java的JDK</h2>
+<p>https://www.oracle.com/java/technologies/javase-jdk8-downloads.html</p>
+<p>选择对应地址，比如我的事MacOS就选择下图选项。下载好后，直接安装，直到最后一步就可以了。</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmqsb64q2j30vu0u0amm.jpg" alt="image-20200308192546039" style="zoom:50%;" />
+<h3 id="验证下载是否成功">验证下载是否成功</h3>
+<p>在终端输入：</p>
+<pre><code>java version
+</code></pre>
+<p>如果显示为下图，则表示安装成功</p>
+<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmquj4c58j312q0g6jwi.jpg" alt="image-20200308192756693" loading="lazy"></figure>
+<h2 id="安装kettle">安装Kettle</h2>
+<p>https://sourceforge.net/projects/pentaho/?source=typ_redirect</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmr179fxhj31h40s87cy.jpg" alt="image-20200308193421307" style="zoom: 50%;" />
+<p>下载完成后解压即可。如图解压得到：</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmr2fn9bxj31aq0u018c.jpg" alt="image-20200308193528853" style="zoom: 50%;" />
+<h3 id="启动kettle">启动Kettle</h3>
+<p>在终端输入Kettle文件夹的地址并回车。比如我的地址是：</p>
+<pre><code> /Users/zhaoguangyao/data-integration
+</code></pre>
+<p>然后输入以下命令并回车：</p>
+<pre><code>sh spoon.sh
+</code></pre>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmrrnxpo3j312q0sutjm.jpg" alt="image-20200308195947176" style="zoom:50%;" />
+<p>弹出Spoon-Kettle程序框</p>
+<figure data-type="image" tabindex="2"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmruwvc77j31hc0u0kjl.jpg" alt="image-20200308200254163" loading="lazy"></figure>
+<h2 id="安装mysql驱动">安装Mysql驱动</h2>
+<p>连接Mysql数据库时会报错提示安装驱动。驱动的安装地址如下：</p>
+<p>https://link.jianshu.com/?t=https://dev.mysql.com/downloads/file/?id=468318%20</p>
+<p>下载后安装解压，然后将如图所示jar文件（两个中的任意一个）拷贝到data-integeation下的lib文件夹中。</p>
+<p><strong>注意：必须要用5.X版本的，不能用8.X！本人就遇到了这个坑。</strong></p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmr5v9guhj31aq0u0qg0.jpg" alt="image-20200308193849718" style="zoom:67%;" />
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmrda2opvj31a00u0nfx.jpg" alt="image-20200308194556885" style="zoom:50%;" />
+<h3 id="连接mysql">连接Mysql</h3>
+<p>输入自己的数据库信息，弹出「正确连接到数据库」对话框</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmrf18lk9j31hu0u048u.jpg" alt="image-20200308194738220" style="zoom:50%;" />
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PySQL]]></title>
         <id>https://Yowai-zhao.github.io/post/pysql/</id>
