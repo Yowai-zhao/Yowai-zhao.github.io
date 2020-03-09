@@ -2,20 +2,23 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>在Mac下的Kettle安装 | Yowai</title>
+<title>参数的应用 | Yowai</title>
 <link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1583761344880">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Yowai-zhao.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="在Mac下的Kettle安装 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="参数的应用 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="Kettle的安装流程
-资源下载链接
-文中所有资源已放在百度网盘，不想去官网下载的可以在此提取。仅适于Mac用户。
-链接:https://pan.baidu.com/s/1H6KS_qBUehJHI8TFyX7lNA  密码:re72
-安装..." />
+    <meta name="description" content="参数的应用
+应用场景
+当我们想直观的看到某个具体的「利润范围」和「类别」关系时，就需要参数的创建。
+
+参数的制作
+创建一个利润分割点的参数，比如在此profit=100000
+
+创建一个区分颜色的计算字段color，比如「Profit≥10..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -78,79 +81,51 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              在Mac下的Kettle安装
+              参数的应用
             </h2>
             <div class="post-info">
               <span>
-                2020-03-08
+                2020-03-09
               </span>
               <span>
-                2 min read
+                1 min read
               </span>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h1 id="kettle的安装流程">Kettle的安装流程</h1>
-<h2 id="资源下载链接">资源下载链接</h2>
-<p>文中所有资源已放在百度网盘，不想去官网下载的可以在此提取。仅适于Mac用户。</p>
-<p>链接:https://pan.baidu.com/s/1H6KS_qBUehJHI8TFyX7lNA  密码:re72</p>
-<h2 id="安装java的jdk">安装Java的JDK</h2>
-<p>https://www.oracle.com/java/technologies/javase-jdk8-downloads.html</p>
-<p>选择对应地址，比如我的事MacOS就选择下图选项。下载好后，直接安装，直到最后一步就可以了。</p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmqsb64q2j30vu0u0amm.jpg" alt="image-20200308192546039" style="zoom: 33%;" />
-<h3 id="验证下载是否成功">验证下载是否成功</h3>
-<p>在终端输入：</p>
-<pre><code>java version
-</code></pre>
-<p>如果显示为下图，则表示安装成功</p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmquj4c58j312q0g6jwi.jpg" alt="image-20200308192756693" style="zoom:33%;" />
-<h2 id="安装kettle">安装Kettle</h2>
-<p>https://sourceforge.net/projects/pentaho/?source=typ_redirect</p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmr179fxhj31h40s87cy.jpg" alt="image-20200308193421307" style="zoom: 33%;" />
-<p>下载完成后解压即可。如图解压得到：</p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmr2fn9bxj31aq0u018c.jpg" alt="image-20200308193528853" style="zoom: 33%;" />
-<h3 id="启动kettle">启动Kettle</h3>
-<p>在终端输入Kettle文件夹的地址并回车。比如我的地址是：</p>
-<pre><code> /Users/zhaoguangyao/data-integration
-</code></pre>
-<p>然后输入以下命令并回车：</p>
-<pre><code>sh spoon.sh
-</code></pre>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmrrnxpo3j312q0sutjm.jpg" alt="image-20200308195947176" style="zoom: 33%;" />
-<p>弹出Spoon-Kettle程序框</p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmruwvc77j31hc0u0kjl.jpg" alt="image-20200308200254163" style="zoom:33%;" />
-<h2 id="安装mysql驱动">安装Mysql驱动</h2>
-<p>连接Mysql数据库时会报错提示安装驱动。驱动的安装地址如下：</p>
-<p>https://link.jianshu.com/?t=https://dev.mysql.com/downloads/file/?id=468318%20</p>
-<p>下载后安装解压，然后将如图所示jar文件（两个中的任意一个）拷贝到data-integeation下的lib文件夹中。</p>
-<p><strong>注意：必须要用5.X版本的，不能用8.X！本人就遇到了这个坑。</strong></p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmr5v9guhj31aq0u0qg0.jpg" alt="image-20200308193849718" style="zoom: 33%;" />
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmrda2opvj31a00u0nfx.jpg" alt="image-20200308194556885" style="zoom: 33%;" />
-<h3 id="连接mysql">连接Mysql</h3>
-<p>输入自己的数据库信息，弹出「正确连接到数据库」对话框</p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmrf18lk9j31hu0u048u.jpg" alt="image-20200308194738220" style="zoom: 33%;" />
-
+                <h3 id="参数的应用">参数的应用</h3>
+<h5 id="应用场景">应用场景</h5>
+<p>当我们想直观的看到某个具体的「利润范围」和「类别」关系时，就需要参数的创建。</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmzni3ggmj317m0u0qnv.jpg" alt="image-20200309003234019" style="zoom:50%;" />
+<h5 id="参数的制作">参数的制作</h5>
+<h6 id="创建一个利润分割点的参数比如在此profit100000">创建一个利润分割点的参数，比如在此profit=100000</h6>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmzo1y3rmj31240ogn3i.jpg" alt="image-20200309003306972" style="zoom:50%;" />
+<h6 id="创建一个区分颜色的计算字段color比如profit100000为红色反之则为绿色">创建一个区分颜色的计算字段color，比如「Profit≥100000为红色；反之则为绿色」</h6>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmzq0rnebj31ic0kkjvp.jpg" alt="image-20200309003459716" style="zoom:50%;" />
+<h6 id="拖入创建好的color计算字段并设置参考线">拖入创建好的color计算字段，并设置参考线</h6>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmzs5qwluj317m0u07pi.jpg" alt="image-20200309003703055" style="zoom:50%;" />
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li><a href="#kettle%E7%9A%84%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B">Kettle的安装流程</a>
+<li>
 <ul>
-<li><a href="#%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5">资源下载链接</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85java%E7%9A%84jdk">安装Java的JDK</a>
+<li>
 <ul>
-<li><a href="#%E9%AA%8C%E8%AF%81%E4%B8%8B%E8%BD%BD%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F">验证下载是否成功</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8">参数的应用</a><br>
+*
+<ul>
+<li><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">应用场景</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0%E7%9A%84%E5%88%B6%E4%BD%9C">参数的制作</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%88%A9%E6%B6%A6%E5%88%86%E5%89%B2%E7%82%B9%E7%9A%84%E5%8F%82%E6%95%B0%E6%AF%94%E5%A6%82%E5%9C%A8%E6%AD%A4profit100000">创建一个利润分割点的参数，比如在此profit=100000</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8C%BA%E5%88%86%E9%A2%9C%E8%89%B2%E7%9A%84%E8%AE%A1%E7%AE%97%E5%AD%97%E6%AE%B5color%E6%AF%94%E5%A6%82profit100000%E4%B8%BA%E7%BA%A2%E8%89%B2%E5%8F%8D%E4%B9%8B%E5%88%99%E4%B8%BA%E7%BB%BF%E8%89%B2">创建一个区分颜色的计算字段color，比如「Profit≥100000为红色；反之则为绿色」</a></li>
+<li><a href="#%E6%8B%96%E5%85%A5%E5%88%9B%E5%BB%BA%E5%A5%BD%E7%9A%84color%E8%AE%A1%E7%AE%97%E5%AD%97%E6%AE%B5%E5%B9%B6%E8%AE%BE%E7%BD%AE%E5%8F%82%E8%80%83%E7%BA%BF">拖入创建好的color计算字段，并设置参考线</a></li>
 </ul>
 </li>
-<li><a href="#%E5%AE%89%E8%A3%85kettle">安装Kettle</a>
-<ul>
-<li><a href="#%E5%90%AF%E5%8A%A8kettle">启动Kettle</a></li>
 </ul>
 </li>
-<li><a href="#%E5%AE%89%E8%A3%85mysql%E9%A9%B1%E5%8A%A8">安装Mysql驱动</a>
-<ul>
-<li><a href="#%E8%BF%9E%E6%8E%A5mysql">连接Mysql</a></li>
 </ul>
 </li>
 </ul>
@@ -165,9 +140,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://Yowai-zhao.github.io/post/pysql/">
+            <a href="https://Yowai-zhao.github.io/post/rong-qi-xia-zuan/">
               <h3 class="post-title">
-                PySQL
+                容器下钻
               </h3>
             </a>
           </div>
