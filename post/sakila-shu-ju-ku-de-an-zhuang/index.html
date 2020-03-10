@@ -2,28 +2,22 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | Yowai</title>
+<title>sakila数据库的安装 | Yowai</title>
 <link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1583823898341">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Yowai-zhao.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="关于 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="sakila数据库的安装 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
+    <meta name="description" content="下载地址
+https://link.jianshu.com/?t=https://dev.mysql.com/doc/index-other.html
 
-🏠 关于本站
-本站最主要的目的是记录自己的学习路程，方便今后有不懂的地方在折回来查阅。
-如果博客中你有不懂的地方，欢迎加我QQ或者微信。
-👨‍💻 博主是谁
+下载好以后解压得到三个文件：
 
-
-本科环境工程碌碌无为
-
-
-硕士..." />
+Skila-schema.sql：数据库结构文件
+sa..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -86,11 +80,11 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              sakila数据库的安装
             </h2>
             <div class="post-info">
               <span>
-                2019-01-25
+                2020-03-10
               </span>
               <span>
                 1 min read
@@ -100,48 +94,51 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<p>本站最主要的目的是记录自己的学习路程，方便今后有不懂的地方在折回来查阅。</p>
-<p>如果博客中你有不懂的地方，欢迎加我QQ或者微信。</p>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<ul>
-<li>
-<p>本科环境工程碌碌无为</p>
-</li>
-<li>
-<p>硕士水处理建模幡然醒悟</p>
-</li>
-<li>
-<p>毕业转行数据分析</p>
-</li>
-</ul>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<ul>
-<li>骑行（本科）</li>
-<li>Mac（硕士）</li>
-</ul>
-<h2 id="联系我呀">📬 联系我呀</h2>
-<ul>
-<li>
-<p>QQ：505895100</p>
-</li>
-<li>
-<p>微信：hero3111</p>
-</li>
-</ul>
-
+                <h6 id="下载地址">下载地址</h6>
+<p>https://link.jianshu.com/?t=https://dev.mysql.com/doc/index-other.html</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcotxwepkwj316w0gc76z.jpg" alt="image-20200310144606146" style="zoom:50%;" />
+<p>下载好以后解压得到三个文件：</p>
+<ol>
+<li>Skila-schema.sql：数据库结构文件</li>
+<li>sakila-data.sql：数据文件</li>
+<li>Sakila.mwb：通常由MySQL WorkBench生成</li>
+</ol>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcou0784dij30jw07y3za.jpg" alt="image-20200310144819179" style="zoom: 67%;" />
+<h6 id="导入mysql">导入Mysql</h6>
+<p>进入Mysql，并执行</p>
+<pre><code class="language-mysql">source /Users/zhaoguangyao/Downloads/sakila-db/sakila-db/sakila-schema.sql;
+source /Users/zhaoguangyao/Downloads/sakila-db/sakila-db/sakila-data.sql;
+</code></pre>
+<p>至此，安装完成</p>
+<h6 id="查看sakila">查看<code>sakila</code></h6>
+<p>选择<code>sakila</code>数据库</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcou3jx7joj30xc0u0ajf.jpg" alt="image-20200310145132130" style="zoom:50%;" />
+<p>查看其中的表</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcou44mnecj30u011d4an.jpg" alt="image-20200310145205865" style="zoom:50%;" />
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-<li><a href="#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81">👨‍💻 博主是谁</a></li>
-<li><a href="#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD">⛹ 兴趣爱好</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80">📬 联系我呀</a></li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80">下载地址</a></li>
+<li><a href="#%E5%AF%BC%E5%85%A5mysql">导入Mysql</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bsakila">查看<code>sakila</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -151,6 +148,15 @@
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Yowai-zhao.github.io/post/fang-xiang-tu-biao-de-ying-yong/">
+              <h3 class="post-title">
+                方向图标的应用
+              </h3>
+            </a>
+          </div>
         
 
         

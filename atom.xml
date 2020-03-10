@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Yowai-zhao.github.io</id>
     <title>Yowai</title>
-    <updated>2020-03-09T13:48:48.039Z</updated>
+    <updated>2020-03-10T07:05:17.623Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Yowai-zhao.github.io"/>
     <link rel="self" href="https://Yowai-zhao.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://Yowai-zhao.github.io/images/avatar.png</logo>
     <icon>https://Yowai-zhao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Yowai</rights>
+    <entry>
+        <title type="html"><![CDATA[sakila数据库的安装]]></title>
+        <id>https://Yowai-zhao.github.io/post/sakila-shu-ju-ku-de-an-zhuang/</id>
+        <link href="https://Yowai-zhao.github.io/post/sakila-shu-ju-ku-de-an-zhuang/">
+        </link>
+        <updated>2020-03-10T07:04:15.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[方向图标的应用]]></title>
         <id>https://Yowai-zhao.github.io/post/fang-xiang-tu-biao-de-ying-yong/</id>
