@@ -3,7 +3,7 @@
   <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>MySQL | Yowai</title>
-<link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1583669365263">
+<link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1583848899664">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Yowai-zhao.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="MySQL | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
@@ -18,7 +18,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://Yowai-zhao.github.io">
-  <img class="avatar" src="https://Yowai-zhao.github.io/images/avatar.png?v=1583669365263" alt="">
+  <img class="avatar" src="https://Yowai-zhao.github.io/images/avatar.png?v=1583848899664" alt="">
   </a>
   <h1 class="site-title">
     Yowai
@@ -76,6 +76,29 @@
         <div class="post-container">
   
     <article class="post">
+      <a href="https://Yowai-zhao.github.io/post/shu-ju-ku-mian-shi-ti/">
+        <h2 class="post-title">数据库面试题</h2>
+      </a>
+      <div class="post-info">
+        <span>
+          2020-03-10
+        </span>
+        <span>
+          8 min read
+        </span>
+        
+          <a href="https://Yowai-zhao.github.io/tag/NkZCfm3qr/" class="post-tag">
+            # MySQL
+          </a>
+        
+      </div>
+      
+      <div class="post-abstract">
+        
+      </div>
+    </article>
+  
+    <article class="post">
       <a href="https://Yowai-zhao.github.io/post/pysql/">
         <h2 class="post-title">PySQL</h2>
       </a>
@@ -87,10 +110,6 @@
           6 min read
         </span>
         
-          <a href="https://Yowai-zhao.github.io/tag/lbvINfBdX/" class="post-tag">
-            # PySQL
-          </a>
-        
           <a href="https://Yowai-zhao.github.io/tag/NkZCfm3qr/" class="post-tag">
             # MySQL
           </a>
@@ -98,320 +117,7 @@
       </div>
       
       <div class="post-abstract">
-        <h2 id="pymysql">Pymysql</h2>
-<h5 id="函数包名称">函数包名称</h5>
-<p><code>pymysql</code></p>
-<h5 id="数据连接对象">数据连接对象</h5>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">参数名</th>
-<th>类型</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">host</td>
-<td>字符串</td>
-<td>mysql服务器地址</td>
-</tr>
-<tr>
-<td style="text-align:center">port</td>
-<td>数字</td>
-<td>mysql服务器端口号</td>
-</tr>
-<tr>
-<td style="text-align:center">user</td>
-<td>字符串</td>
-<td>用户名</td>
-</tr>
-<tr>
-<td style="text-align:center">password</td>
-<td>字符串</td>
-<td>密码</td>
-</tr>
-<tr>
-<td style="text-align:center">db</td>
-<td>字符串</td>
-<td>数据库名称</td>
-</tr>
-<tr>
-<td style="text-align:center">charset</td>
-<td>字符串</td>
-<td>连接编码</td>
-</tr>
-</tbody>
-</table>
-<h5 id="connection对象支持的方法"><code>connection</code>对象支持的方法</h5>
-<table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>cursor()</code></td>
-<td>使用该连接创建并返回游标</td>
-</tr>
-<tr>
-<td><code>commit()</code></td>
-<td>提交当前事务</td>
-</tr>
-<tr>
-<td><code>roolback()</code></td>
-<td>回滚当前事务</td>
-</tr>
-<tr>
-<td><code>close()</code></td>
-<td>关闭连接</td>
-</tr>
-</tbody>
-</table>
-<h5 id="游标对象">游标对象</h5>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">参数名</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">execute()</td>
-<td style="text-align:center">执行命令</td>
-</tr>
-<tr>
-<td style="text-align:center">fetchone()</td>
-<td style="text-align:center">取结果集的下一行</td>
-</tr>
-<tr>
-<td style="text-align:center">fetchmany()</td>
-<td style="text-align:center">获取结果集的下几行</td>
-</tr>
-<tr>
-<td style="text-align:center">fetchall()</td>
-<td style="text-align:center">获取结果集中<strong>剩下</strong>的所有行</td>
-</tr>
-<tr>
-<td style="text-align:center">rowcount()</td>
-<td style="text-align:center">最近一次execute返回数据的行数或影响行数</td>
-</tr>
-<tr>
-<td style="text-align:center">close()</td>
-<td style="text-align:center">关闭游标对象</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="language-python">import pymysql
-
-db=pymysql.connect(host=&quot;localhost&quot;,port=3306,
-                   user=&quot;root&quot;,passwd=&quot;282515&quot;,
-                   db=&quot;sql_learing&quot;,charset=&quot;utf8&quot;)
-# 定义游标
-cursor=db.cursor()
-# sql语句
-p=&quot;select * from hotel&quot;
-# 执行
-cursor.execute(p)
-# 将游标的数据存储在变量里
-data=cursor.fetchone()
-print(data)
-# 关闭数据库连接
-db.close()
-</code></pre>
-<h5 id="创建数据库表">创建数据库表</h5>
-<pre><code class="language-python">import pymysql
-
-db=pymysql.connect(host=&quot;localhost&quot;,user=&quot;root&quot;,
-                   port=3306,passwd=&quot;282515&quot;,
-                   db=&quot;sql_learing&quot;,charset=&quot;utf8&quot;)
-
-cursor=db.cursor()
-sql_01=&quot;create table test_pymysql (first_name char(20) not null,&quot; \
-       &quot;last_name char(20),age int)&quot;
-
-try:
-    cursor.execute(sql_01)
-    db.commit()
-except:
-    db.rollback()
-</code></pre>
-<h5 id="数据库查询操作">数据库查询操作</h5>
-<ul>
-<li><code>fetchone()</code>：结果集是一个对象</li>
-<li><code>fetchall()</code>：结果集是所有对象</li>
-<li><code>fetchmany()</code>结果集是指定个数。例如：<code>fetchmany(10)</code>就是10个对象</li>
-</ul>
-<pre><code class="language-python">import pymysql
-
-db=pymysql.connect(host=&quot;localhost&quot;,user=&quot;root&quot;,
-                   port=3306,passwd=&quot;282515&quot;,
-                   db=&quot;sql_learing&quot;,charset=&quot;utf8&quot;)
-
-cursor=db.cursor()
-sql_01=&quot;select 名字,评分 from hotel where 评分 &gt; %s&quot;%(2)
-
-try:
-    cursor.execute(sql_01)
-    # 拿到所有行的数据存到result中
-    result=cursor.fetchall()
-    for row in result:
-        hotel_name=row[0]
-        hotel_score=row[1]
-        print(&quot;%s 的评分是 %s&quot;%(hotel_name,hotel_score))
-except:
-    print(&quot;error&quot;)
-</code></pre>
-<h5 id="数据库更新操作">数据库更新操作</h5>
-<pre><code class="language-python">import pymysql
-
-db=pymysql.connect(host=&quot;localhost&quot;,user=&quot;root&quot;,
-                   port=3306,passwd=&quot;282515&quot;,
-                   db=&quot;sql_learing&quot;,charset=&quot;utf8&quot;)
-
-cursor=db.cursor()
-sql_01=&quot;update t1 set new_col=111 where x=%s&quot;%(1)
-
-try:
-    cursor.execute(sql_01)
-    db.commit()
-except:
-    print(&quot;error&quot;)
-</code></pre>
-<h5 id="数据库删除操作">数据库删除操作</h5>
-<pre><code class="language-python">import pymysql
-
-db=pymysql.connect(host=&quot;localhost&quot;,user=&quot;root&quot;,
-                   port=3306,passwd=&quot;282515&quot;,
-                   db=&quot;sql_learing&quot;,charset=&quot;utf8&quot;)
-
-cursor=db.cursor()
-sql_01=&quot;delete from t1 where x=%s&quot;%(1)
-
-try:
-    cursor.execute(sql_01)
-    db.commit()
-except:
-    print(&quot;error&quot;)
-</code></pre>
-<h5 id="事务处理">事务处理</h5>
-<p>对于支持事务处理的数据库，在Python数据库编程中，当游标建立之时，就自动开始了一个隐形的数据库事务。</p>
-<pre><code class="language-python">import pymysql
-
-db=pymysql.connect(host=&quot;localhost&quot;,user=&quot;root&quot;,
-                   port=3306,passwd=&quot;282515&quot;,
-                   db=&quot;sql_learing&quot;,charset=&quot;utf8&quot;)
-
-cursor=db.cursor()
-sql_01=&quot;update t2 set x=%s where x=%s&quot;%(111,3)
-sql_02=&quot;insert into t2 values(4,4000)&quot;
-sql_03=&quot;delete from t2 where x=%s&quot;%(1)
-
-try:
-    cursor.execute(sql_01)
-    print(cursor.rowcount)
-    cursor.execute(sql_02)
-    print(cursor.rowcount)
-    cursor.execute(sql_03)
-    print(cursor.rowcount)
-    # 如果都可执行，则提交
-    db.commit()
-except:
-    # 否则rollback
-    db.rollback()
-    print(&quot;error&quot;)
-</code></pre>
-<h5 id="实例银行转账系统">实例：银行转账系统</h5>
-<pre><code class="language-python">import pymysql
-
-class transfermoney():
-    def __init__(self,conn):
-        self.conn=conn
         
-    # 检查账户是否可用
-    def check_account_available(self,acctid):
-        cursor=self.conn.cursor()
-        try:
-            sql=&quot;select * from t2 where x=%s&quot;%acctid
-            cursor.execute(sql)
-            print(&quot;check_account_available:&quot;+sql)
-            result=cursor.fetchall()
-            if len(result)!=1:
-                print(&quot;账号%s不存在&quot;%acctid)
-        finally:
-            cursor.close()
-            
-    # 检查账户里是否有足够的钱
-    def has_enough_money(self,acctid,money):
-        cursor=self.conn.cursor()
-        try:
-            sql=&quot;select * from t2 where x=%s and y&gt;%s&quot;%(acctid,money)
-            cursor.execute(sql)
-            print(&quot;has_enough_money:&quot;+sql)
-            result=cursor.fetchall()
-            if len(result)!=1:
-                print(&quot;账号%s没有足够的钱&quot;%acctid)
-        finally:
-            cursor.close()
-
-    # 扣钱
-    def reduce_money(self,acctid,money):
-        cursor=self.conn.cursor()
-        try:
-            sql=&quot;update t2 set y=y-%s where x=%s&quot;%(money,acctid)
-            cursor.execute(sql)
-            print(&quot;reduce_money:&quot;+sql)
-            if cursor.rowcount!=1:
-                print(&quot;账号%s扣款失败&quot;%acctid)
-        finally:
-            cursor.close()
-
-    # 加钱
-    def add_money(self,acctid,money):
-        cursor=self.conn.cursor()
-        try:
-            sql=&quot;update t2 set y=y+%s where x=%s&quot;%(money,acctid)
-            cursor.execute(sql)
-            print(&quot;reduce_money:&quot;+sql)
-            if cursor.rowcount!=1:
-                print(&quot;账号%s加款失败&quot;%acctid)
-        finally:
-            cursor.close()
-
-    # 开始转账（处理事务）
-    def transfer(self,source_id,target_id,money):
-        try:
-            self.check_account_available(source_id)
-            self.check_account_available(target_id)
-            self.has_enough_money(source_id,money)
-            self.reduce_money(source_id,money)
-            self.add_money(target_id,money)
-            self.conn.commit()
-        except:
-            self.conn.rollback()
-            print(&quot;转账失败&quot;)
-
-# 创建连接
-conn=pymysql.connect(host=&quot;localhost&quot;,port=3306,user=&quot;root&quot;,passwd=&quot;282515&quot;,
-                     db=&quot;sql_learing&quot;,charset=&quot;utf8&quot;)
-# 输入账户和钱
-
-source_id=input()
-target_id=input()
-money=input()
-
-tr_money=transfermoney(conn)
-try:
-    tr_money.transfer(source_id,target_id,money)
-except:
-    print(&quot;error&quot;)
-finally:
-    conn.close()
-</code></pre>
-
       </div>
     </article>
   
