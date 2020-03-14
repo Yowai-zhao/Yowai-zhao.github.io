@@ -2,22 +2,20 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Homebrew更换镜像源 | Yowai</title>
+<title>2 - 安装Java和Handoop | Yowai</title>
 <link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1584200715993">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Yowai-zhao.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Homebrew更换镜像源 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="2 - 安装Java和Handoop | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="来源
-https://www.mintimate.cn/2019/06/26/Mac杂坛/
-Step1：插件Homebrew目录
-打开终端，创建Homebrew文件目录：
-sudo mkdir /usr/local/Homebrew
+    <meta name="description" content="准备Java和Hadoop
+分别创建software和module存放未解压文件和解压文件
 
-St..." />
+解压文件到module
+tar zxvf jdk-7u45-linux-x64.tar.gz -C /home/parallels/Desktop..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -80,7 +78,7 @@ St..." />
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Homebrew更换镜像源
+              2 - 安装Java和Handoop
             </h2>
             <div class="post-info">
               <span>
@@ -94,40 +92,36 @@ St..." />
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h3 id="来源">来源</h3>
-<p><a href="https://www.mintimate.cn/2019/06/26/Mac%E6%9D%82%E5%9D%9B/">https://www.mintimate.cn/2019/06/26/Mac杂坛/</a></p>
-<h4 id="step1插件homebrew目录">Step1：插件Homebrew目录</h4>
-<p>打开终端，创建Homebrew文件目录：</p>
-<pre><code class="language-shell">sudo mkdir /usr/local/Homebrew
+                <h5 id="准备java和hadoop">准备Java和Hadoop</h5>
+<h5 id="分别创建software和module存放未解压文件和解压文件">分别创建software和module存放未解压文件和解压文件</h5>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gctokva848j31hc0u0kjl.jpg" alt="image-20200314192824228" style="zoom:50%;" />
+<h5 id="解压文件到module">解压文件到module</h5>
+<pre><code class="language-shell">tar zxvf jdk-7u45-linux-x64.tar.gz -C /home/parallels/Desktop/module
+tar zxvf jdk-7u45-linux-x64.tar.gz -C /home/parallels/Desktop/module
 </code></pre>
-<h4 id="step2同步brewgit库">Step2：同步brew.git库</h4>
-<p>下载brew.git库文件(大概32M)到/usr/local/Homebrew：</p>
-<pre><code>sudo git clone https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git /usr/local/Homebrew
+<h5 id="卸载之前的java如果有的话">卸载之前的Java（如果有的话）</h5>
+<pre><code class="language-shell">rpm -qa  | grep java | xargs sudo rpm -e --nodeps
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcr282pr4kj30qr0aj41g.jpg" alt="img" loading="lazy"></figure>
-<h4 id="step3添加环境使终端可以任意位置调用homebrew">Step3：添加环境–使终端可以任意位置调用Homebrew</h4>
-<pre><code class="language-shell">sudo ln -s /usr/local/Homebrew/bin/brew /usr/local/bin/brew
+<h5 id="配置环境变量">配置环境变量</h5>
+<h6 id="在root命令下执行">在root命令下执行</h6>
+<pre><code class="language-shell">vim /etc/profile
+
+# 添加完成以后执行以下命令
+source /etc/profile
 </code></pre>
-<p>如果提示File exists：</p>
-<pre><code class="language-shell">sudo rm -r -f /usr/local/bin/brew
-</code></pre>
-<h4 id="step4创建并同步homebrew-core库">Step4：创建并同步Homebrew-core库</h4>
-<p>创建Homebrew-core目录，并git Homebrew-core库文件(大概250M)：</p>
-<pre><code class="language-shell">sudo mkdir -p /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core
-sudo git clone https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core
-</code></pre>
-<h4 id="step5创建并同步homebrew-cask库">Step5：创建并同步Homebrew-cask库</h4>
-<pre><code class="language-shell">sudo mkdir -p /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask
-sudo git clone https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask
-</code></pre>
-<figure data-type="image" tabindex="2"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcr288rv6nj30qr0ajad7.jpg" alt="img" loading="lazy"></figure>
-<h4 id="step6提权">Step6：提权</h4>
-<pre><code class="language-shell">sudo chown -R $(whoami) /usr/local/Cellar
-</code></pre>
-<p>这个时候</p>
-<pre><code class="language-shell">brew -v
-</code></pre>
-<p>就可以看到brew已经安装。</p>
+<h6 id="添加java和hadoop的环境变量">添加Java和Hadoop的环境变量</h6>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gctp4ghunhj31hh0u0aur.jpg" alt="image-20200314194713982" style="zoom:50%;" />
+<h6 id="分别检验java和hadoop环境变量是否安装成功">分别检验Java和Hadoop环境变量是否安装成功</h6>
+<p>显示以下信息则表示环境变量配置成功。</p>
+<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gctqowxhizj31hh0u0awp.jpg" alt="image-20200314204127416" loading="lazy"></figure>
+<h5 id="查看安装的hadoop内容">查看安装的Hadoop内容</h5>
+<h6 id="hadoop的jar包">Hadoop的Jar包</h6>
+<p>Haddop的Jar包都在<code>/home/parallels/Desktop/module/hadoop-2.9.2/share/hadoop</code></p>
+<figure data-type="image" tabindex="2"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gctqu43i8hj31hh0u0wwp.jpg" alt="image-20200314204629689" loading="lazy"></figure>
+<h6 id="hadoop下的linux本地库文件">Hadoop下的Linux本地库文件</h6>
+<p><code>Hadoop下的Linux本地库文件/home/parallels/Desktop/module/hadoop-2.9.2/lib/native</code>中</p>
+<p>这也是Hadoop需要编译的原因，它依赖于Linux的本地库。当找不到本地库文件的时候，就会尝试寻找Java内建版本。（内建Java可能慢）。这也说明Hadoop不是纯Java</p>
+<figure data-type="image" tabindex="3"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gctqxrbistj31hh0u0nhj.jpg" alt="image-20200314204959581" loading="lazy"></figure>
 
               </div>
               <div class="toc-container">
@@ -136,14 +130,29 @@ sudo git clone https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.g
 <ul>
 <li>
 <ul>
-<li><a href="#%E6%9D%A5%E6%BA%90">来源</a>
+<li>
 <ul>
-<li><a href="#step1%E6%8F%92%E4%BB%B6homebrew%E7%9B%AE%E5%BD%95">Step1：插件Homebrew目录</a></li>
-<li><a href="#step2%E5%90%8C%E6%AD%A5brewgit%E5%BA%93">Step2：同步brew.git库</a></li>
-<li><a href="#step3%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E4%BD%BF%E7%BB%88%E7%AB%AF%E5%8F%AF%E4%BB%A5%E4%BB%BB%E6%84%8F%E4%BD%8D%E7%BD%AE%E8%B0%83%E7%94%A8homebrew">Step3：添加环境–使终端可以任意位置调用Homebrew</a></li>
-<li><a href="#step4%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%90%8C%E6%AD%A5homebrew-core%E5%BA%93">Step4：创建并同步Homebrew-core库</a></li>
-<li><a href="#step5%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%90%8C%E6%AD%A5homebrew-cask%E5%BA%93">Step5：创建并同步Homebrew-cask库</a></li>
-<li><a href="#step6%E6%8F%90%E6%9D%83">Step6：提权</a></li>
+<li>
+<ul>
+<li><a href="#%E5%87%86%E5%A4%87java%E5%92%8Chadoop">准备Java和Hadoop</a></li>
+<li><a href="#%E5%88%86%E5%88%AB%E5%88%9B%E5%BB%BAsoftware%E5%92%8Cmodule%E5%AD%98%E6%94%BE%E6%9C%AA%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6%E5%92%8C%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6">分别创建software和module存放未解压文件和解压文件</a></li>
+<li><a href="#%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6%E5%88%B0module">解压文件到module</a></li>
+<li><a href="#%E5%8D%B8%E8%BD%BD%E4%B9%8B%E5%89%8D%E7%9A%84java%E5%A6%82%E6%9E%9C%E6%9C%89%E7%9A%84%E8%AF%9D">卸载之前的Java（如果有的话）</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">配置环境变量</a>
+<ul>
+<li><a href="#%E5%9C%A8root%E5%91%BD%E4%BB%A4%E4%B8%8B%E6%89%A7%E8%A1%8C">在root命令下执行</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0java%E5%92%8Chadoop%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">添加Java和Hadoop的环境变量</a></li>
+<li><a href="#%E5%88%86%E5%88%AB%E6%A3%80%E9%AA%8Cjava%E5%92%8Chadoop%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F">分别检验Java和Hadoop环境变量是否安装成功</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%AE%89%E8%A3%85%E7%9A%84hadoop%E5%86%85%E5%AE%B9">查看安装的Hadoop内容</a>
+<ul>
+<li><a href="#hadoop%E7%9A%84jar%E5%8C%85">Hadoop的Jar包</a></li>
+<li><a href="#hadoop%E4%B8%8B%E7%9A%84linux%E6%9C%AC%E5%9C%B0%E5%BA%93%E6%96%87%E4%BB%B6">Hadoop下的Linux本地库文件</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -160,9 +169,9 @@ sudo git clone https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.g
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://Yowai-zhao.github.io/post/tableau-biao-ji-suan/">
+            <a href="https://Yowai-zhao.github.io/post/an-zhuang-xu-ni-ji-mo-fang-wei-fen-bu-shi/">
               <h3 class="post-title">
-                Tableau表计算
+                1 - 虚拟机配置
               </h3>
             </a>
           </div>
