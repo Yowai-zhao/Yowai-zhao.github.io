@@ -1,0 +1,317 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>安装虚拟机，模仿伪分布式（Hadoop） | Yowai</title>
+<link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1584189129359">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Yowai-zhao.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="安装虚拟机，模仿伪分布式（Hadoop） | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="用Parallels创建三台Centos虚拟机，分别命名为slave1，slave2，slave3
+虚拟机网关设置
+参考文章：https://blog.csdn.net/yolohohohoho/article/details/874377..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Yowai-zhao.github.io">
+  <img class="avatar" src="https://Yowai-zhao.github.io/images/avatar.png?v=1584189129359" alt="">
+  </a>
+  <h1 class="site-title">
+    Yowai
+  </h1>
+  <p class="site-description">
+    斯坦福的小窝
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              安装虚拟机，模仿伪分布式（Hadoop）
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-14
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>用Parallels创建三台Centos虚拟机，分别命名为slave1，slave2，slave3</p>
+<h5 id="虚拟机网关设置">虚拟机网关设置</h5>
+<p>参考文章：https://blog.csdn.net/yolohohohoho/article/details/87437780</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcte097nh6j30ux0u015j.jpg" alt="image-20200314132236646" style="zoom:50%;" />
+<h4 id="以下操作分别在三台虚拟机上">以下操作分别在三台虚拟机上</h4>
+<h5 id="关闭防火墙">关闭防火墙</h5>
+<pre><code class="language-shell">systemctl stop firewalld.service      #停止firewall
+systemctl disable firewalld.service   #禁止firewall开机启动
+
+firewall-cmd --state #查看防火墙状态
+</code></pre>
+<h5 id="修改etchostname文件">修改<code>/etc/hostname</code>文件</h5>
+<pre><code class="language-shell"># 进入文件后删除所有东西，将自己的用户名写进去：slave1
+vim /etc/hostname
+# 更新网络
+service network restart
+</code></pre>
+<h5 id="4-设置静态ip">4 设置静态IP</h5>
+<p>先<code>ifconfig</code>查看虚拟机IP地址</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcspa858frj31hh0u0qun.jpg" alt="image-20200313230712878" style="zoom:50%;" />
+<pre><code class="language-shell">vim /etc/sysconfig/network-scripts/ifcfg-eth0
+</code></pre>
+<pre><code class="language-shell">TYPE=Ethernet
+BOOTPROTO=dhcp
+DEFROUTE=yes
+PEERDNS=yes
+PEERROUTES=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_PEERDNS=yes
+IPV6_PEERROUTES=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=eth0
+UUID=9410076c-bee9-4886-af6c-537c17bcfee0
+DEVICE=eth0
+ONBOOT=yes
+#以上内容不做操作，添加IP地址
+IPADDR=192.168.1.17
+
+#更新网络
+service network restart
+</code></pre>
+<h5 id="5-更新hosts文件">5 更新hosts文件</h5>
+<p>这里需要对全部三个节点的hosts进行更新，在 /etc/hosts 加入三台节点的host信息，例如，以下是我添加的代码：</p>
+<pre><code class="language-shell"># 进入文件
+vim /etc/hosts
+
+# 将以下文件写入(根据自己需求，以下是我的内容)
+192.168.1.21 slave1
+192.168.1.3 slave2
+192.168.1.4 slave3
+
+#更新网络
+service network restart
+</code></pre>
+<h5 id="设置ssh免密">设置SSH免密</h5>
+<p><strong>不在root命令下！！！</strong></p>
+<pre><code class="language-shell">ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+ssh localhost
+</code></pre>
+<h6 id="在slave1上执行以下代码将自己的公钥添加到其他两台节点的authorized_keys中">在Slave1上执行以下代码，将自己的公钥添加到其他两台节点的authorized_keys中</h6>
+<pre><code class="language-shell">cat ~/.ssh/id_rsa.pub | ssh parallels@slave2 'cat &gt;&gt; .ssh/authorized_keys &amp;&amp; echo &quot;Key copied&quot;'
+cat ~/.ssh/id_rsa.pub | ssh parallels@slave3 'cat &gt;&gt; .ssh/authorized_keys &amp;&amp; echo &quot;Key copied&quot;'
+</code></pre>
+<h6 id="在slave2上执行以下代码将自己的公钥添加到其他两台节点的authorized_keys中">在Slave2上执行以下代码，将自己的公钥添加到其他两台节点的authorized_keys中</h6>
+<pre><code class="language-shell">cat ~/.ssh/id_rsa.pub | ssh parallels@slave1 'cat &gt;&gt; .ssh/authorized_keys &amp;&amp; echo &quot;Key copied&quot;'
+cat ~/.ssh/id_rsa.pub | ssh parallels@slave3 'cat &gt;&gt; .ssh/authorized_keys &amp;&amp; echo &quot;Key copied&quot;'
+</code></pre>
+<h6 id="在slave3上执行以下代码将自己的公钥添加到其他两台节点的authorized_keys中">在Slave3上执行以下代码，将自己的公钥添加到其他两台节点的authorized_keys中</h6>
+<pre><code class="language-shell">cat ~/.ssh/id_rsa.pub | ssh parallels@slave1 'cat &gt;&gt; .ssh/authorized_keys &amp;&amp; echo &quot;Key copied&quot;'
+cat ~/.ssh/id_rsa.pub | ssh parallels@slave2 'cat &gt;&gt; .ssh/authorized_keys &amp;&amp; echo &quot;Key copied&quot;'
+</code></pre>
+<h5 id="测试结果">测试结果</h5>
+<h6 id="slave1">slave1</h6>
+<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcted1jisaj31iv0u0gxu.jpg" alt="image-20200314133453684" loading="lazy"></figure>
+<h6 id="slave2">slave2</h6>
+<figure data-type="image" tabindex="2"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gctedykjqbj31iv0u0dr0.jpg" alt="image-20200314133546962" loading="lazy"></figure>
+<h6 id="slave3">slave3</h6>
+<figure data-type="image" tabindex="3"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gctedjp0j3j31hh0u017f.jpg" alt="image-20200314133522841" loading="lazy"></figure>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E5%85%B3%E8%AE%BE%E7%BD%AE">虚拟机网关设置</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BB%A5%E4%B8%8B%E6%93%8D%E4%BD%9C%E5%88%86%E5%88%AB%E5%9C%A8%E4%B8%89%E5%8F%B0%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8A">以下操作分别在三台虚拟机上</a>
+<ul>
+<li><a href="#%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99">关闭防火墙</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9etchostname%E6%96%87%E4%BB%B6">修改<code>/etc/hostname</code>文件</a></li>
+<li><a href="#4-%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip">4 设置静态IP</a></li>
+<li><a href="#5-%E6%9B%B4%E6%96%B0hosts%E6%96%87%E4%BB%B6">5 更新hosts文件</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AEssh%E5%85%8D%E5%AF%86">设置SSH免密</a>
+<ul>
+<li><a href="#%E5%9C%A8slave1%E4%B8%8A%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%E5%B0%86%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E9%92%A5%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%85%B6%E4%BB%96%E4%B8%A4%E5%8F%B0%E8%8A%82%E7%82%B9%E7%9A%84authorized_keys%E4%B8%AD">在Slave1上执行以下代码，将自己的公钥添加到其他两台节点的authorized_keys中</a></li>
+<li><a href="#%E5%9C%A8slave2%E4%B8%8A%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%E5%B0%86%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E9%92%A5%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%85%B6%E4%BB%96%E4%B8%A4%E5%8F%B0%E8%8A%82%E7%82%B9%E7%9A%84authorized_keys%E4%B8%AD">在Slave2上执行以下代码，将自己的公钥添加到其他两台节点的authorized_keys中</a></li>
+<li><a href="#%E5%9C%A8slave3%E4%B8%8A%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%E5%B0%86%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%AC%E9%92%A5%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%85%B6%E4%BB%96%E4%B8%A4%E5%8F%B0%E8%8A%82%E7%82%B9%E7%9A%84authorized_keys%E4%B8%AD">在Slave3上执行以下代码，将自己的公钥添加到其他两台节点的authorized_keys中</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C">测试结果</a>
+<ul>
+<li><a href="#slave1">slave1</a></li>
+<li><a href="#slave2">slave2</a></li>
+<li><a href="#slave3">slave3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Yowai-zhao.github.io/post/homebrew-geng-huan-jing-xiang-yuan/">
+              <h3 class="post-title">
+                Homebrew更换镜像源
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'efae5bd8d4c706ddfb34',
+    clientSecret: 'e9f3ef82a59859d555e4718c022b6c05f8ec2611',
+    repo: 'https://Yowai-zhao.github.io',
+    owner: 'Yowai-zhao',
+    admin: ['Yowai-zhao'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  
+  <a class="rss" href="https://Yowai-zhao.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
