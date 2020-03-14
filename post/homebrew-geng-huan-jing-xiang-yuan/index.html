@@ -2,23 +2,23 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>sakila数据库的安装 | Yowai</title>
+<title>Homebrew更换镜像源 | Yowai</title>
 <link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1584163126234">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Yowai-zhao.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="sakila数据库的安装 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Homebrew更换镜像源 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="下载地址
-https://link.jianshu.com/?t=https://dev.mysql.com/doc/index-other.html
+    <meta name="description" content="来源
+https://www.mintimate.cn/2019/06/26/Mac杂坛/
+Step1：插件Homebrew目录
+打开终端，创建Homebrew文件目录：
+sudo mkdir /usr/local/Homebrew
 
-下载好以后解压得到三个文件：
-
-Skila-schema.sql：数据库结构文件
-sa..." />
-    <meta name="keywords" content="Kettle" />
+St..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -80,45 +80,55 @@ sa..." />
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              sakila数据库的安装
+              Homebrew更换镜像源
             </h2>
             <div class="post-info">
               <span>
-                2020-03-10
+                2020-03-14
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
-              
-                <a href="https://Yowai-zhao.github.io/tag/1Lj_mRvqr/" class="post-tag">
-                  # Kettle
-                </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h6 id="下载地址">下载地址</h6>
-<p>https://link.jianshu.com/?t=https://dev.mysql.com/doc/index-other.html</p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcotxwepkwj316w0gc76z.jpg" alt="image-20200310144606146" style="zoom:50%;" />
-<p>下载好以后解压得到三个文件：</p>
-<ol>
-<li>Skila-schema.sql：数据库结构文件</li>
-<li>sakila-data.sql：数据文件</li>
-<li>Sakila.mwb：通常由MySQL WorkBench生成</li>
-</ol>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcou0784dij30jw07y3za.jpg" alt="image-20200310144819179" style="zoom: 67%;" />
-<h6 id="导入mysql">导入Mysql</h6>
-<p>进入Mysql，并执行</p>
-<pre><code class="language-mysql">source /Users/zhaoguangyao/Downloads/sakila-db/sakila-db/sakila-schema.sql;
-source /Users/zhaoguangyao/Downloads/sakila-db/sakila-db/sakila-data.sql;
+                <h3 id="来源">来源</h3>
+<p><a href="https://www.mintimate.cn/2019/06/26/Mac%E6%9D%82%E5%9D%9B/">https://www.mintimate.cn/2019/06/26/Mac杂坛/</a></p>
+<h4 id="step1插件homebrew目录">Step1：插件Homebrew目录</h4>
+<p>打开终端，创建Homebrew文件目录：</p>
+<pre><code class="language-shell">sudo mkdir /usr/local/Homebrew
 </code></pre>
-<p>至此，安装完成</p>
-<h6 id="查看sakila">查看<code>sakila</code></h6>
-<p>选择<code>sakila</code>数据库</p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcou3jx7joj30xc0u0ajf.jpg" alt="image-20200310145132130" style="zoom:50%;" />
-<p>查看其中的表</p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcou44mnecj30u011d4an.jpg" alt="image-20200310145205865" style="zoom:50%;" />
+<h4 id="step2同步brewgit库">Step2：同步brew.git库</h4>
+<p>下载brew.git库文件(大概32M)到/usr/local/Homebrew：</p>
+<pre><code>sudo git clone https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git /usr/local/Homebrew
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcr282pr4kj30qr0aj41g.jpg" alt="img" loading="lazy"></figure>
+<h4 id="step3添加环境使终端可以任意位置调用homebrew">Step3：添加环境–使终端可以任意位置调用Homebrew</h4>
+<pre><code class="language-shell">sudo ln -s /usr/local/Homebrew/bin/brew /usr/local/bin/brew
+</code></pre>
+<p>如果提示File exists：</p>
+<pre><code class="language-shell">sudo rm -r -f /usr/local/bin/brew
+</code></pre>
+<h4 id="step4创建并同步homebrew-core库">Step4：创建并同步Homebrew-core库</h4>
+<p>创建Homebrew-core目录，并git Homebrew-core库文件(大概250M)：</p>
+<pre><code class="language-shell">sudo mkdir -p /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core
+sudo git clone https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core
+</code></pre>
+<h4 id="step5创建并同步homebrew-cask库">Step5：创建并同步Homebrew-cask库</h4>
+<pre><code class="language-shell">sudo mkdir -p /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask
+sudo git clone https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcr288rv6nj30qr0ajad7.jpg" alt="img" loading="lazy"></figure>
+<h4 id="step6提权">Step6：提权</h4>
+<pre><code class="language-shell">sudo chown -R $(whoami) /usr/local/Cellar
+</code></pre>
+<p>这个时候</p>
+<pre><code class="language-shell">brew -v
+</code></pre>
+<p>就可以看到brew已经安装。</p>
+
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
@@ -126,19 +136,14 @@ source /Users/zhaoguangyao/Downloads/sakila-db/sakila-db/sakila-data.sql;
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#%E6%9D%A5%E6%BA%90">来源</a>
 <ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80">下载地址</a></li>
-<li><a href="#%E5%AF%BC%E5%85%A5mysql">导入Mysql</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8Bsakila">查看<code>sakila</code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#step1%E6%8F%92%E4%BB%B6homebrew%E7%9B%AE%E5%BD%95">Step1：插件Homebrew目录</a></li>
+<li><a href="#step2%E5%90%8C%E6%AD%A5brewgit%E5%BA%93">Step2：同步brew.git库</a></li>
+<li><a href="#step3%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E4%BD%BF%E7%BB%88%E7%AB%AF%E5%8F%AF%E4%BB%A5%E4%BB%BB%E6%84%8F%E4%BD%8D%E7%BD%AE%E8%B0%83%E7%94%A8homebrew">Step3：添加环境–使终端可以任意位置调用Homebrew</a></li>
+<li><a href="#step4%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%90%8C%E6%AD%A5homebrew-core%E5%BA%93">Step4：创建并同步Homebrew-core库</a></li>
+<li><a href="#step5%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%90%8C%E6%AD%A5homebrew-cask%E5%BA%93">Step5：创建并同步Homebrew-cask库</a></li>
+<li><a href="#step6%E6%8F%90%E6%9D%83">Step6：提权</a></li>
 </ul>
 </li>
 </ul>
@@ -155,9 +160,9 @@ source /Users/zhaoguangyao/Downloads/sakila-db/sakila-db/sakila-data.sql;
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://Yowai-zhao.github.io/post/fang-xiang-tu-biao-de-ying-yong/">
+            <a href="https://Yowai-zhao.github.io/post/tableau-biao-ji-suan/">
               <h3 class="post-title">
-                方向图标的应用
+                Tableau表计算
               </h3>
             </a>
           </div>

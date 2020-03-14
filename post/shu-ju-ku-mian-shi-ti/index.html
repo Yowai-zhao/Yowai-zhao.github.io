@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>数据库面试题 | Yowai</title>
-<link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1583848899664">
+<link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1584163126234">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Yowai-zhao.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="数据库面试题 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
@@ -27,7 +27,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://Yowai-zhao.github.io">
-  <img class="avatar" src="https://Yowai-zhao.github.io/images/avatar.png?v=1583848899664" alt="">
+  <img class="avatar" src="https://Yowai-zhao.github.io/images/avatar.png?v=1584163126234" alt="">
   </a>
   <h1 class="site-title">
     Yowai
@@ -87,7 +87,7 @@
                 2020-03-10
               </span>
               <span>
-                8 min read
+                9 min read
               </span>
               
                 <a href="https://Yowai-zhao.github.io/tag/NkZCfm3qr/" class="post-tag">
@@ -179,7 +179,8 @@
 <img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcow4oo6jqj31080k0jse.jpg" alt="这里写图片描述" style="zoom:50%;" />
 <h6 id="快速定位到硬盘中的数据文件">快速定位到硬盘中的数据文件</h6>
 <img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcow5v8nd3j31080k0dh8.jpg" alt="这里写图片描述" style="zoom:50%;" />
-<p>具体参考：https://blog.csdn.net/weiliangliang111/article/details/51333169</p>
+<p>具体参考：<br>
+https://blog.csdn.net/weiliangliang111/article/details/51333169</p>
 <h4 id="什么是事务">什么是事务？</h4>
 <p>简单的说：一个session中所进行所有的操作，要么同时成功，要么同时失败</p>
 <h6 id="acid四个基本要素">ACID四个基本要素</h6>
@@ -188,6 +189,12 @@
 <li>一致性：如果事务是并发多个，系统也必须如同串行事务一样操作，其主要特征就是保护性和不变性。以转账为例，假如现在A和B共有100元，事务执行完毕后，A和B的账户里页应该是100元，不能多也不能少。</li>
 <li>隔离性：隔离状态执行事务，是他们好像是系统在给定时间内执行的唯一操作。如果有两个事务，运行在相同的时间内，执行相同的功能，事务的隔离性将确保每一事务在系统中认为只有该事务在使用系统。这种属性有时候被称为<strong>串行化</strong>。为了防止事务操作时间的混淆，必须串行化或者序列化的请求。使得同一时间有且仅有一个请求用于同一数据。</li>
 <li>持久性：事务完成后，该事务对数据库所做的更改便持久的保存在数据库中，不会被回滚。</li>
+</ol>
+<h4 id="脏读不可重复读幻读">脏读，不可重复读，幻读</h4>
+<ol>
+<li>脏读：事务处理A读取了未提交的事务处理B的数据</li>
+<li>不可重复读：事务处理A多次查询，因为事务处理B可能更改数据，所以导致事务处理A每次读取的数据都不一样</li>
+<li>幻读：事务在插入已经检查过不存在的记录时，惊奇的发现这些数据已经存在了，之前的检测获取到的数据如同鬼影一般。参考链接：https://blog.csdn.net/v123411739/article/details/39298127</li>
 </ol>
 <h4 id="sql约束有哪几种">SQL约束有哪几种？</h4>
 <ol>
@@ -203,7 +210,7 @@
 <ol>
 <li><code>user</code>权限表：记录允许连接到服务器的用户账户信息，里面的权限是全局的</li>
 <li><code>db</code>权限表：记录哥哥账号在各个数据库上的操作权限</li>
-<li><code>table_priv</code>权限表“记录数据表级的操作权限</li>
+<li><code>table_priv</code>权限表记录数据表级的操作权限</li>
 <li><code>columns_priv</code>权限表：记录数据列级的操作权限</li>
 <li><code>host</code>权限表：配合<code>db</code>权限表的时候对给定主机上数据库级别操作权限做更细致的控制。这个权限不受<code>grant</code>和<code>revoke</code>的影响</li>
 </ol>
@@ -304,6 +311,7 @@ SELECT * FROM score WHERE s_id IN (&quot;01&quot;,&quot;02&quot;);
 <li><a href="#acid%E5%9B%9B%E4%B8%AA%E5%9F%BA%E6%9C%AC%E8%A6%81%E7%B4%A0">ACID四个基本要素</a></li>
 </ul>
 </li>
+<li><a href="#%E8%84%8F%E8%AF%BB%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E5%B9%BB%E8%AF%BB">脏读，不可重复读，幻读</a></li>
 <li><a href="#sql%E7%BA%A6%E6%9D%9F%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D">SQL约束有哪几种？</a></li>
 <li><a href="#varchar%E5%92%8Cchar%E7%9A%84%E5%8C%BA%E5%88%AB"><code>varchar</code>和<code>char</code>的区别</a></li>
 <li><a href="#mysql%E4%B8%AD%E6%9C%89%E5%85%B3%E6%9D%83%E9%99%90%E7%9A%84%E8%A1%A8%E6%9C%89%E5%93%AA%E5%87%A0%E4%B8%AA">mysql中有关权限的表有哪几个？</a></li>
