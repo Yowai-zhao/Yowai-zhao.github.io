@@ -2,27 +2,27 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>容器下钻 | Yowai</title>
+<title>oh-my-zsh配置 | Yowai</title>
 <link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1584250312031">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Yowai-zhao.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="容器下钻 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="oh-my-zsh配置 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="容器下钻
-比如两张图，图A以省级为单位，图B以市为单位。容器下钻就是点击A省，出现A省的城市。
+    <meta name="description" content="下载iterm2
+官网：https://www.iterm2.com/
+或者直接在App store安装
+切换shell为zsh
+chsh -s /bin/zsh
 
-操作步骤
-制作两个工作表：各省利润；各市利润。
-各省利润如下
+验证是否切换成功
+echo $SHELL
 
-各市利润如下
-
-制作仪表盘
-仪表盘 - 操作 - 添加操作 - 筛选器。右侧“..." />
-    <meta name="keywords" content="Tableau可视化,Tableau" />
+安装oh-my-zsh
+sh ..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -84,42 +84,52 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              容器下钻
+              oh-my-zsh配置
             </h2>
             <div class="post-info">
               <span>
-                2020-03-09
+                2020-03-15
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
-              
-                <a href="https://Yowai-zhao.github.io/tag/u5cCTzi5Z/" class="post-tag">
-                  # Tableau可视化
-                </a>
-              
-                <a href="https://Yowai-zhao.github.io/tag/L1vnkH8fj/" class="post-tag">
-                  # Tableau
-                </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h3 id="容器下钻">容器下钻</h3>
-<p>比如两张图，图A以省级为单位，图B以市为单位。容器下钻就是点击A省，出现A省的城市。</p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmyy6ln6yj31930u0u0y.jpg" alt="image-20200309000814294" style="zoom: 50%;" />
-<h4 id="操作步骤">操作步骤</h4>
-<p>制作两个工作表：各省利润；各市利润。</p>
-<h6 id="各省利润如下">各省利润如下</h6>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmyzidui1j31930u07wi.jpg" alt="image-20200309000930567" style="zoom:50%;" />
-<h6 id="各市利润如下">各市利润如下</h6>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmz1czv3fj31930u0u0y.jpg" alt="image-20200309001117573" style="zoom:50%;" />
-<h6 id="制作仪表盘">制作仪表盘</h6>
-<p>仪表盘 - 操作 - 添加操作 - 筛选器。右侧“清楚选定内容将会”选择「排除所有值」即可。</p>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcmz4f6trkj30u013s143.jpg" alt="image-20200309001414068" style="zoom:50%;" />
-<h6 id="最终效果如下">最终效果如下</h6>
-<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcnzpao65xj315g0u04qp.jpg" alt="image-20200309211948998" style="zoom:50%;" />
+                <h3 id="下载iterm2">下载iterm2</h3>
+<p>官网：<a href="https://www.iterm2.com/">https://www.iterm2.com/</a></p>
+<p>或者直接在App store安装</p>
+<h4 id="切换shell为zsh">切换shell为zsh</h4>
+<pre><code class="language-shell">chsh -s /bin/zsh
+</code></pre>
+<h4 id="验证是否切换成功">验证是否切换成功</h4>
+<pre><code class="language-shell">echo $SHELL
+</code></pre>
+<h3 id="安装oh-my-zsh">安装oh-my-zsh</h3>
+<pre><code class="language-shell">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+</code></pre>
+<h3 id="修改主题配置">修改主题配置</h3>
+<h4 id="查看主题种类">查看主题种类</h4>
+<p>主题都在此文件夹存放</p>
+<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujl942wyj31540u01bm.jpg" alt="image-20200315132120509" loading="lazy"></figure>
+<h4 id="浏览主题样式">浏览主题样式</h4>
+<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+<figure data-type="image" tabindex="2"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujn93pb2j30u00v7kjl.jpg" alt="image-20200315132316282" loading="lazy"></figure>
+<h4 id="修改主题">修改主题</h4>
+<p>打开家目录下的「.zshrc」文件，然后修改配置。「.zshrc」文件是隐藏文件，如果用访达打开的话，需要用「shift+command+.」显示隐藏文件。其中灰色即为隐藏文件。</p>
+<figure data-type="image" tabindex="3"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujhnny2qj31540u04ml.jpg" alt="image-20200315131753761" loading="lazy"></figure>
+<p>打开「.zshrc」文件，修改如图所示信息保存，然后重启客户端即可。</p>
+<figure data-type="image" tabindex="4"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujqjzm39j30u0105tpi.jpg" alt="image-20200315132626022" loading="lazy"></figure>
+<h3 id="命令高亮">命令高亮</h3>
+<p>zsh-syntax-highlighting地址：<a href="https://github.com/zsh-users/zsh-syntax-highlighting">https://github.com/zsh-users/zsh-syntax-highlighting</a></p>
+<pre><code class="language-shell"> git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+ echo &quot;source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot; &gt;&gt; ${ZDOTDIR:-$HOME}/.zshrc
+</code></pre>
+<p>重启客户端，即可启动高亮效果</p>
+<figure data-type="image" tabindex="5"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujsq1jgkj312q0g6n1m.jpg" alt="image-20200315132831835" loading="lazy"></figure>
+
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
@@ -127,19 +137,21 @@
 <ul>
 <li>
 <ul>
-<li><a href="#%E5%AE%B9%E5%99%A8%E4%B8%8B%E9%92%BB">容器下钻</a>
+<li><a href="#%E4%B8%8B%E8%BD%BDiterm2">下载iterm2</a>
 <ul>
-<li><a href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4">操作步骤</a><br>
-*
-<ul>
-<li><a href="#%E5%90%84%E7%9C%81%E5%88%A9%E6%B6%A6%E5%A6%82%E4%B8%8B">各省利润如下</a></li>
-<li><a href="#%E5%90%84%E5%B8%82%E5%88%A9%E6%B6%A6%E5%A6%82%E4%B8%8B">各市利润如下</a></li>
-<li><a href="#%E5%88%B6%E4%BD%9C%E4%BB%AA%E8%A1%A8%E7%9B%98">制作仪表盘</a></li>
-<li><a href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C%E5%A6%82%E4%B8%8B">最终效果如下</a></li>
+<li><a href="#%E5%88%87%E6%8D%A2shell%E4%B8%BAzsh">切换shell为zsh</a></li>
+<li><a href="#%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E5%88%87%E6%8D%A2%E6%88%90%E5%8A%9F">验证是否切换成功</a></li>
 </ul>
 </li>
+<li><a href="#%E5%AE%89%E8%A3%85oh-my-zsh">安装oh-my-zsh</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE">修改主题配置</a>
+<ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E4%B8%BB%E9%A2%98%E7%A7%8D%E7%B1%BB">查看主题种类</a></li>
+<li><a href="#%E6%B5%8F%E8%A7%88%E4%B8%BB%E9%A2%98%E6%A0%B7%E5%BC%8F">浏览主题样式</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98">修改主题</a></li>
 </ul>
 </li>
+<li><a href="#%E5%91%BD%E4%BB%A4%E9%AB%98%E4%BA%AE">命令高亮</a></li>
 </ul>
 </li>
 </ul>
@@ -154,9 +166,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://Yowai-zhao.github.io/post/zai-mac-xia-de-kettle-an-zhuang/">
+            <a href="https://Yowai-zhao.github.io/post/4-yarn-wei-fen-bu-shi/">
               <h3 class="post-title">
-                在Mac下的Kettle安装
+                4 - Yarn伪分布式
               </h3>
             </a>
           </div>

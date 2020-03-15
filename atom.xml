@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Yowai-zhao.github.io</id>
     <title>Yowai</title>
-    <updated>2020-03-14T15:45:23.949Z</updated>
+    <updated>2020-03-15T05:31:54.857Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Yowai-zhao.github.io"/>
     <link rel="self" href="https://Yowai-zhao.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://Yowai-zhao.github.io/images/avatar.png</logo>
     <icon>https://Yowai-zhao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Yowai</rights>
+    <entry>
+        <title type="html"><![CDATA[oh-my-zsh配置]]></title>
+        <id>https://Yowai-zhao.github.io/post/oh-my-zsh-pei-zhi/</id>
+        <link href="https://Yowai-zhao.github.io/post/oh-my-zsh-pei-zhi/">
+        </link>
+        <updated>2020-03-15T05:31:31.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[4 - Yarn伪分布式]]></title>
         <id>https://Yowai-zhao.github.io/post/4-yarn-wei-fen-bu-shi/</id>
@@ -72,12 +79,5 @@
         <link href="https://Yowai-zhao.github.io/post/fang-xiang-tu-biao-de-ying-yong/">
         </link>
         <updated>2020-03-09T13:45:51.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[环形图]]></title>
-        <id>https://Yowai-zhao.github.io/post/huan-xing-tu/</id>
-        <link href="https://Yowai-zhao.github.io/post/huan-xing-tu/">
-        </link>
-        <updated>2020-03-09T13:45:18.000Z</updated>
     </entry>
 </feed>
