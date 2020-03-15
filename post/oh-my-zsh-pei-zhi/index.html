@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>oh-my-zsh配置 | Yowai</title>
-<link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1584274314308">
+<link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1584285699090">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Yowai-zhao.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="oh-my-zsh配置 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
@@ -31,7 +31,7 @@ sh ..." />
       <div class="main-content">
         <div class="site-header">
   <a href="https://Yowai-zhao.github.io">
-  <img class="avatar" src="https://Yowai-zhao.github.io/images/avatar.png?v=1584274314308" alt="">
+  <img class="avatar" src="https://Yowai-zhao.github.io/images/avatar.png?v=1584285699090" alt="">
   </a>
   <h1 class="site-title">
     Yowai
@@ -113,23 +113,33 @@ sh ..." />
 <h3 id="修改主题配置">修改主题配置</h3>
 <h4 id="查看主题种类">查看主题种类</h4>
 <p>主题都在此文件夹存放</p>
-<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujl942wyj31540u01bm.jpg" alt="image-20200315132120509" loading="lazy"></figure>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujl942wyj31540u01bm.jpg" alt="image-20200315132120509" style="zoom:50%;" />
 <h4 id="浏览主题样式">浏览主题样式</h4>
 <p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
-<figure data-type="image" tabindex="2"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujn93pb2j30u00v7kjl.jpg" alt="image-20200315132316282" loading="lazy"></figure>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujn93pb2j30u00v7kjl.jpg" alt="image-20200315132316282" style="zoom:50%;" />
 <h4 id="修改主题">修改主题</h4>
 <p>打开家目录下的「.zshrc」文件，然后修改配置。「.zshrc」文件是隐藏文件，如果用访达打开的话，需要用「shift+command+.」显示隐藏文件。其中灰色即为隐藏文件。</p>
-<figure data-type="image" tabindex="3"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujhnny2qj31540u04ml.jpg" alt="image-20200315131753761" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujhnny2qj31540u04ml.jpg" alt="image-20200315131753761" loading="lazy"></figure>
 <p>打开「.zshrc」文件，修改如图所示信息保存，然后重启客户端即可。</p>
-<figure data-type="image" tabindex="4"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujqjzm39j30u0105tpi.jpg" alt="image-20200315132626022" loading="lazy"></figure>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujqjzm39j30u0105tpi.jpg" alt="image-20200315132626022" style="zoom: 50%;" />
 <h3 id="命令高亮">命令高亮</h3>
 <p>zsh-syntax-highlighting地址：<a href="https://github.com/zsh-users/zsh-syntax-highlighting">https://github.com/zsh-users/zsh-syntax-highlighting</a></p>
-<pre><code class="language-shell"> git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+<pre><code class="language-shell"> cd ~/.oh-my-zsh/custom/plugins/
+ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
  echo &quot;source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot; &gt;&gt; ${ZDOTDIR:-$HOME}/.zshrc
 </code></pre>
 <p>重启客户端，即可启动高亮效果</p>
-<figure data-type="image" tabindex="5"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujsq1jgkj312q0g6n1m.jpg" alt="image-20200315132831835" loading="lazy"></figure>
-
+<figure data-type="image" tabindex="2"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcujsq1jgkj312q0g6n1m.jpg" alt="image-20200315132831835" loading="lazy"></figure>
+<h3 id="命令补全">命令补全</h3>
+<p>跟代码高亮的安装方式一样，这也是一个zsh的插件，叫做zsh-autosuggestion，用于命令建议和补全。</p>
+<pre><code class="language-shell">cd ~/.oh-my-zsh/custom/plugins/
+git clone https://github.com/zsh-users/zsh-autosuggestions
+vi ~/.zshrc
+</code></pre>
+<p>找到家目录下的「.zshrc」文件作如下修改</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcv004e06pj30wi0rwaei.jpg" alt="image-20200315224913125" style="zoom:33%;" />
+<p>最终效果</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcv081s838j30wi07umya.jpg" alt="image-20200315225650687" style="zoom: 50%;" />
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
@@ -152,6 +162,7 @@ sh ..." />
 </ul>
 </li>
 <li><a href="#%E5%91%BD%E4%BB%A4%E9%AB%98%E4%BA%AE">命令高亮</a></li>
+<li><a href="#%E5%91%BD%E4%BB%A4%E8%A1%A5%E5%85%A8">命令补全</a></li>
 </ul>
 </li>
 </ul>
