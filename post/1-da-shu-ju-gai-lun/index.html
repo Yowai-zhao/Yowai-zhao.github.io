@@ -1,0 +1,314 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>1 - 大数据概论 | Yowai</title>
+<link rel="shortcut icon" href="https://Yowai-zhao.github.io/favicon.ico?v=1584274314308">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Yowai-zhao.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="1 - 大数据概论 | Yowai - Atom Feed" href="https://Yowai-zhao.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="大数据概念
+主要解决海量数据的存储和海量数据的分析计算问题
+存储单位
+按顺序：bit，Byte，KB，MB，GB，TB，PB，EB，ZB，YB，BB，NB，DB
+大数据特点
+Volume-大量
+截至目前，人类生产的所有印刷材料的数据量是20..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Yowai-zhao.github.io">
+  <img class="avatar" src="https://Yowai-zhao.github.io/images/avatar.png?v=1584274314308" alt="">
+  </a>
+  <h1 class="site-title">
+    Yowai
+  </h1>
+  <p class="site-description">
+    斯坦福的小窝
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              1 - 大数据概论
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-15
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="大数据概念">大数据概念</h3>
+<p>主要解决海量数据的存储和海量数据的分析计算问题</p>
+<h4 id="存储单位">存储单位</h4>
+<p>按顺序：bit，Byte，KB，MB，GB，TB，PB，EB，ZB，YB，BB，NB，DB</p>
+<h3 id="大数据特点">大数据特点</h3>
+<h4 id="volume-大量">Volume-大量</h4>
+<p>截至目前，人类生产的所有印刷材料的数据量是200PB，而历史上全人类总共说过的话的数据量大约是5EB。当前典型个人计算机硬盘的容量为TB量级，而一些大企业的数据量已经接近EB量级。</p>
+<h4 id="velocity-高速">Velocity-高速</h4>
+<p>这是大数据区分于传统数据挖掘的最显著特征。根据IDC的“数字宇宙”的报告，预计到2020年，全球数据使用量将达到35.2ZB。在如此海量的数据面前，处理数据的效率就是企业的生命。</p>
+<h4 id="variety-多样">Variety-多样</h4>
+<p>这种类型的多样性也让数据被分为结构化数据和非结构化数据。相对于以往便于存储的以数据库/本为主的结构化数据，非结构化数据越来越多，包括网络日志、音频、视频、图片、地理位置信息等，这些多类型的数据对数据的处理能力提出了更高要求。</p>
+<h4 id="value-低价值密度">Value-低价值密度</h4>
+<p>价值密度的高低与数据总量的大小成反比。如何快速对有价值数据&quot;提纯&quot;成为目前大数据背景下待解决的难题。</p>
+<h3 id="大数据部门业务流程分析">大数据部门业务流程分析</h3>
+<ol>
+<li>产品人员提需求：统计总用户数量，日活跃用户，回流用户等等</li>
+<li>数据部门搭建数据平台，分析数据指标</li>
+<li>数据可视化：报表展示，邮件发送等</li>
+</ol>
+<h3 id="hadoop">Hadoop</h3>
+<h4 id="hadoop是什么">hadoop是什么？</h4>
+<ol>
+<li>Hadoop是一个由Apache基金会所开发的分布式系统基础架构</li>
+<li>主要解决海量数据的存储和海量数据的分析计算问题</li>
+<li>广义上来说，Hadoop通常是指一个更广泛的概念-Hadoop生态圈</li>
+</ol>
+<h4 id="hadoop三大发行版本">Hadoop三大发行版本</h4>
+<ol>
+<li><strong>Apache版本最原始的版本，对于入门学习最好</strong></li>
+<li>Cloudera在大型互联网企业中用的较多</li>
+<li>Hortonworks文档较好</li>
+</ol>
+<h3 id="hadoop优势">Hadoop优势</h3>
+<ol>
+<li>高可靠性：Hadoop底层维护多个数据副本</li>
+<li>高扩展性：在集群间分配任务数据，可方便的扩展数以千计的节点</li>
+<li>高效性：在MapReduce的思想下，Hadoop是并行工作的，以加快任务处理速度</li>
+<li>高容错性：能够自动将失败的任务重新分配</li>
+</ol>
+<h4 id="hadoop组成重点">Hadoop组成（重点）</h4>
+<h4 id="hadoop1x">Hadoop1.X</h4>
+<ol>
+<li>common：辅助工具</li>
+<li>HDFS-数据存储</li>
+<li>MapReduce：计算+资源调度</li>
+</ol>
+<h4 id="hadoop2x">Hadoop2.X</h4>
+<ol>
+<li>common：辅助工具</li>
+<li>HDFS-数据存储</li>
+<li>MapReduce：计算</li>
+<li>Yarn：资源调度</li>
+</ol>
+<h3 id="hdfs架构概述">HDFS架构概述</h3>
+<p>HDFS（Hadoop Distributed File System）</p>
+<h4 id="namenodenn">NameNode（nn）</h4>
+<p>存储文件的元数据。比如：文件名，文件目录结构，文件属性，以及每个文件的块列表和块所在的Datanode等。</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcutwmak7cj31460ckwrv.jpg" alt="image-20200315191815497" style="zoom:50%;" />
+<h4 id="datanodedn">DataNode（dn）</h4>
+<p>在本地文件系统存储文件块数据，以及块数据的校验。</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcutx1cni5j31460ckqhu.jpg" alt="image-20200315191839976" style="zoom:50%;" />
+<h4 id="secondary-namenode2nn">Secondary NameNode（2nn）</h4>
+<p>用来监控HDFS的状态的辅助后台程序，每隔一段时间获取HDFS元数据的快照</p>
+<p>如果nn挂掉了，2nn并不能顶替。打个比方：如果nn是手术室的医生，2nn就是递工具的护士。</p>
+<h3 id="yarn架构">YARN架构</h3>
+<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gcutyr8yrsj31gk0q247v.jpg" alt="image-20200315192018853" loading="lazy"></figure>
+<h4 id="applicationmaster">ApplicationMaster</h4>
+<p>一个NM管理一个节点上的资源，受RM的调配。假如来了一个比较小的项目，RM不值得出马，所以就找一个临时负责人，此人就是AM。</p>
+<p>每当来一个请求，RM就会安排一个AM，AM负责此任务节点（可能是多节点）资源调度。项目结束后，AM消失。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E5%BF%B5">大数据概念</a>
+<ul>
+<li><a href="#%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D">存储单位</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%89%B9%E7%82%B9">大数据特点</a>
+<ul>
+<li><a href="#volume-%E5%A4%A7%E9%87%8F">Volume-大量</a></li>
+<li><a href="#velocity-%E9%AB%98%E9%80%9F">Velocity-高速</a></li>
+<li><a href="#variety-%E5%A4%9A%E6%A0%B7">Variety-多样</a></li>
+<li><a href="#value-%E4%BD%8E%E4%BB%B7%E5%80%BC%E5%AF%86%E5%BA%A6">Value-低价值密度</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%83%A8%E9%97%A8%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90">大数据部门业务流程分析</a></li>
+<li><a href="#hadoop">Hadoop</a>
+<ul>
+<li><a href="#hadoop%E6%98%AF%E4%BB%80%E4%B9%88">hadoop是什么？</a></li>
+<li><a href="#hadoop%E4%B8%89%E5%A4%A7%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC">Hadoop三大发行版本</a></li>
+</ul>
+</li>
+<li><a href="#hadoop%E4%BC%98%E5%8A%BF">Hadoop优势</a>
+<ul>
+<li><a href="#hadoop%E7%BB%84%E6%88%90%E9%87%8D%E7%82%B9">Hadoop组成（重点）</a></li>
+<li><a href="#hadoop1x">Hadoop1.X</a></li>
+<li><a href="#hadoop2x">Hadoop2.X</a></li>
+</ul>
+</li>
+<li><a href="#hdfs%E6%9E%B6%E6%9E%84%E6%A6%82%E8%BF%B0">HDFS架构概述</a>
+<ul>
+<li><a href="#namenodenn">NameNode（nn）</a></li>
+<li><a href="#datanodedn">DataNode（dn）</a></li>
+<li><a href="#secondary-namenode2nn">Secondary NameNode（2nn）</a></li>
+</ul>
+</li>
+<li><a href="#yarn%E6%9E%B6%E6%9E%84">YARN架构</a>
+<ul>
+<li><a href="#applicationmaster">ApplicationMaster</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Yowai-zhao.github.io/post/oh-my-zsh-pei-zhi/">
+              <h3 class="post-title">
+                oh-my-zsh配置
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'efae5bd8d4c706ddfb34',
+    clientSecret: 'e9f3ef82a59859d555e4718c022b6c05f8ec2611',
+    repo: 'https://Yowai-zhao.github.io',
+    owner: 'Yowai-zhao',
+    admin: ['Yowai-zhao'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  
+  <a class="rss" href="https://Yowai-zhao.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
